@@ -30,14 +30,14 @@ public class TestAPI {
         Map<String,String> post = new HashMap<>();
         post.put("application_id", "76077");
         post.put("auth_key", "4M6nWT7TjY45vEc");
-        post.put("nonce", "12346");
-        post.put("timestamp", "1551515755");
+        post.put("nonce", "12348");
+        post.put("timestamp", "1551537895");
         post.put("user[login]", "MytestUser");
         post.put("user[password]", "MyDochka1");
-        post.put("signature", "feed8f9a74bff573cd4732ee24e5a212ed198aaf");
+        post.put("signature", "f11458874ca398ab8c04ea1664d72cd839ebcb91");
 
         given().
-                contentType("application/json")
+                contentType(ContentType.JSON)
                 .body(post)
                 .when().post("/session.json")
                 .then().statusCode(201);
