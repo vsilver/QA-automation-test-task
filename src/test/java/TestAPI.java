@@ -75,16 +75,40 @@ public class TestAPI {
 
     @Test(description = "user sign out", priority = 4)
     public void userSignOut(){
+        Map<String,String> post = new HashMap<>();
+        post.put("token", "64216b37fe842106c431632e9533c13e8a01292d");
+
+        given().
+                contentType(ContentType.JSON)
+                .body(post)
+                .when().delete("/login.json")
+                .then().statusCode(200);
 
     }
 
     @Test(description = "destroy session", priority = 5)
     public void destroySession(){
+        Map<String,String> post = new HashMap<>();
+        post.put("token", "64216b37fe842106c431632e9533c13e8a01292d");
+
+        given().
+                contentType(ContentType.JSON)
+                .body(post)
+                .when().delete("/session.json")
+                .then().statusCode(200);
 
     }
 
     @Test(description = "session info after destroy", priority = 6)
     public void sessionInfoAfterDestroy(){
+        Map<String,String> post = new HashMap<>();
+        post.put("token", "64216b37fe842106c431632e9533c13e8a01292d");
+
+        given().
+                contentType(ContentType.JSON)
+                .body(post)
+                .when().get("/session.json")
+                .then().statusCode(200);
 
     }
 
