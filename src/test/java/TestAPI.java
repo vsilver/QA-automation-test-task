@@ -13,7 +13,7 @@ import static org.hamcrest.Matchers.*;
 
 public class TestAPI {
     protected static void setupRestAssured() {
-        RestAssured.baseURI = "graph.facebook.com";
+        RestAssured.baseURI = "https://api.quickblox.com";
     }
 
     @BeforeTest
@@ -21,7 +21,7 @@ public class TestAPI {
         setupRestAssured();
     }
 
-    
+
 
 }
 
