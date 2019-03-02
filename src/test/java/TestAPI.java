@@ -46,6 +46,17 @@ public class TestAPI {
 
     @Test(description = "user sign in", priority = 2)
     public void userSignIn(){
+        Map<String,String> post = new HashMap<>();
+        post.put("user[login]", "MytestUser");
+        post.put("user[password]", "MyDochka1");
+        post.put("provider", "facebook");
+        post.put("token", "64216b37fe842106c431632e9533c13e8a01292d");
+
+        given().
+                contentType(ContentType.JSON)
+                .body(post)
+                .when().post("/login.json")
+                .then().statusCode(202);
 
     }
 
@@ -61,7 +72,7 @@ public class TestAPI {
 
     @Test(description = "destroy session", priority = 5)
     public void destroySession(){
-        
+
     }
 
     @Test(description = "session info after destroy", priority = 6)
