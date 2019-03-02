@@ -62,6 +62,14 @@ public class TestAPI {
 
     @Test(description = "session info", priority = 3)
     public void sessionInfo(){
+        Map<String,String> post = new HashMap<>();
+        post.put("token", "64216b37fe842106c431632e9533c13e8a01292d");
+
+        given().
+                contentType(ContentType.JSON)
+                .body(post)
+                .when().get("/session.json")
+                .then().statusCode(200);
 
     }
 
