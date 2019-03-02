@@ -25,7 +25,7 @@ public class TestAPI {
         setupRestAssured();
     }
 
-    @Test(description = "Create session", priority = 1)
+    @Test(description = "create session", priority = 1)
     public void sessionCreation(){
         Map<String,String> post = new HashMap<>();
         post.put("application_id", "76077");
@@ -44,6 +44,30 @@ public class TestAPI {
 
     }
 
+    @Test(description = "user sign in", priority = 2)
+    public void userSignIn(){
+
+    }
+
+    @Test(description = "session info", priority = 3)
+    public void sessionInfo(){
+
+    }
+
+    @Test(description = "user sign out", priority = 4)
+    public void userSignOut(){
+
+    }
+
+    @Test(description = "destroy session", priority = 5)
+    public void destroySession(){
+        
+    }
+
+    @Test(description = "session info after destroy", priority = 6)
+    public void sessionInfoAfterDestroy(){
+
+    }
 
 
 }
