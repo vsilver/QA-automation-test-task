@@ -30,18 +30,17 @@ public class TestAPI {
         Map<String,String> post = new HashMap<>();
         post.put("application_id", "76077");
         post.put("auth_key", "4M6nWT7TjY45vEc");
-        post.put("nonce", "12379");
-        post.put("timestamp", "1551602035");
+        post.put("nonce", "12399");
+        post.put("timestamp", "1551612895");
         post.put("user[login]", "MytestUser");
         post.put("user[password]", "MyDochka1");
-        post.put("signature", "46ef44f707282d4d5d9efb44cedd06b852525f91");
+        post.put("signature", "7e77cc21610c0953a024617afd947c57937889ae");
 
         given().
                 contentType(ContentType.JSON)
                 .body(post)
                 .when().post("/session.json")
                 .then().body(containsString("session"));//statusCode(201);
-
     }
 
     @Test(description = "user sign in", priority = 2)
@@ -56,8 +55,7 @@ public class TestAPI {
                 contentType(ContentType.JSON)
                 .body(post)
                 .when().post("/login.json")
-                .then().body(containsString("user"));//statusCode(202);
-
+                .then().body(containsString("user"));
     }
 
     @Test(description = "session info", priority = 3)
@@ -70,7 +68,6 @@ public class TestAPI {
                 .body(post)
                 .when().get("/session.json")
                 .then().statusCode(200);
-
     }
 
     @Test(description = "user sign out", priority = 4)
@@ -83,7 +80,6 @@ public class TestAPI {
                 .body(post)
                 .when().delete("/login.json")
                 .then().statusCode(200);
-
     }
 
     @Test(description = "destroy session", priority = 5)
@@ -96,7 +92,6 @@ public class TestAPI {
                 .body(post)
                 .when().delete("/session.json")
                 .then().statusCode(200);
-
     }
 
     @Test(description = "session info after destroy", priority = 6)
@@ -111,7 +106,5 @@ public class TestAPI {
                 .then().statusCode(401);
 
     }
-
-
 }
 
