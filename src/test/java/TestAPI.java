@@ -1,4 +1,6 @@
 import com.jayway.restassured.RestAssured;
+import com.jayway.restassured.filter.log.RequestLoggingFilter;
+import com.jayway.restassured.response.ValidatableResponse;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import com.jayway.restassured.http.ContentType;
@@ -13,6 +15,10 @@ import static com.jayway.restassured.RestAssured.given;
 import static com.jayway.restassured.RestAssured.basic;
 import static org.codehaus.groovy.tools.shell.util.Logger.io;
 import static org.hamcrest.Matchers.*;
+
+import io.qameta.allure.Link;
+import io.qameta.allure.Issue;
+import io.qameta.allure.TmsLink;
 
 
 public class TestAPI {
@@ -30,17 +36,21 @@ public class TestAPI {
         Map<String,String> post = new HashMap<>();
         post.put("application_id", "76077");
         post.put("auth_key", "4M6nWT7TjY45vEc");
-        post.put("nonce", "12399");
-        post.put("timestamp", "1551612895");
+        post.put("nonce", "12499");
+        post.put("timestamp", "1551622435");
         post.put("user[login]", "MytestUser");
         post.put("user[password]", "MyDochka1");
-        post.put("signature", "7e77cc21610c0953a024617afd947c57937889ae");
+        post.put("signature", "c826677047ec5386537d749c10d75450f9627ebf");
 
-        given().
-                contentType(ContentType.JSON)
+        ValidatableResponse response = given()
+                .filter(new RequestLoggingFilter())
+                .contentType(ContentType.JSON)
                 .body(post)
                 .when().post("/session.json")
-                .then().body(containsString("session"));//statusCode(201);
+                .then().log().ifError()
+                .assertThat().statusCode(201);
+
+        response.log().all().extract().response();
     }
 
     @Test(description = "user sign in", priority = 2)
@@ -49,19 +59,23 @@ public class TestAPI {
         post.put("user[login]", "MytestUser");
         post.put("user[password]", "MyDochka1");
         post.put("provider", "facebook");
-        post.put("token", "762dd9b95a2b57853b93a378976a0a7dfa01292d");
+        post.put("token", "a0a5a2b59416275784773f16b650f9641a01292d");
 
-        given().
-                contentType(ContentType.JSON)
+        ValidatableResponse response = given()
+                .filter(new RequestLoggingFilter())
+                .contentType(ContentType.JSON)
                 .body(post)
                 .when().post("/login.json")
-                .then().body(containsString("user"));
+                .then().log().ifError()
+                .body(containsString("user"));
+
+        response.log().all().extract().response();
     }
 
     @Test(description = "session info", priority = 3)
     public void sessionInfo(){
         Map<String,String> post = new HashMap<>();
-        post.put("token", "762dd9b95a2b57853b93a378976a0a7dfa01292d");
+        post.put("token", "a0a5a2b59416275784773f16b650f9641a01292d");
 
         given().
                 contentType(ContentType.JSON)
@@ -85,7 +99,7 @@ public class TestAPI {
     @Test(description = "destroy session", priority = 5)
     public void destroySession(){
         Map<String,String> post = new HashMap<>();
-        post.put("token", "762dd9b95a2b57853b93a378976a0a7dfa01292d");
+        post.put("token", "a0a5a2b59416275784773f16b650f9641a01292d");
 
         given().
                 contentType(ContentType.JSON)
@@ -97,7 +111,7 @@ public class TestAPI {
     @Test(description = "session info after destroy", priority = 6)
     public void sessionInfoAfterDestroy(){
         Map<String,String> post = new HashMap<>();
-        post.put("token", "64216b37fe842106c431632e9533c13e8a01292d");
+        post.put("token", "a0a5a2b59416275784773f16b650f9641a01292d");
 
         given().
                 contentType(ContentType.JSON)
