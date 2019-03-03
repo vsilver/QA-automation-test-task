@@ -77,11 +77,13 @@ public class TestAPI {
         Map<String,String> post = new HashMap<>();
         post.put("token", "a0a5a2b59416275784773f16b650f9641a01292d");
 
-        given().
-                contentType(ContentType.JSON)
+        given()
+                .filter(new RequestLoggingFilter())
+                .contentType(ContentType.JSON)
                 .body(post)
                 .when().get("/session.json")
-                .then().statusCode(200);
+                .then().log().ifError()
+                .assertThat().statusCode(200);
     }
 
     @Test(description = "user sign out", priority = 4)
@@ -89,11 +91,13 @@ public class TestAPI {
         Map<String,String> post = new HashMap<>();
         post.put("token", "762dd9b95a2b57853b93a378976a0a7dfa01292d");
 
-        given().
-                contentType(ContentType.JSON)
+        given()
+                .filter(new RequestLoggingFilter())
+                .contentType(ContentType.JSON)
                 .body(post)
                 .when().delete("/login.json")
-                .then().statusCode(200);
+                .then().log().ifError()
+                .assertThat().statusCode(200);
     }
 
     @Test(description = "destroy session", priority = 5)
@@ -101,11 +105,13 @@ public class TestAPI {
         Map<String,String> post = new HashMap<>();
         post.put("token", "a0a5a2b59416275784773f16b650f9641a01292d");
 
-        given().
-                contentType(ContentType.JSON)
+        given()
+                .filter(new RequestLoggingFilter())
+                .contentType(ContentType.JSON)
                 .body(post)
                 .when().delete("/session.json")
-                .then().statusCode(200);
+                .then().log().ifError()
+                .assertThat().statusCode(200);
     }
 
     @Test(description = "session info after destroy", priority = 6)
@@ -113,11 +119,13 @@ public class TestAPI {
         Map<String,String> post = new HashMap<>();
         post.put("token", "a0a5a2b59416275784773f16b650f9641a01292d");
 
-        given().
-                contentType(ContentType.JSON)
+        given()
+                .filter(new RequestLoggingFilter())
+                .contentType(ContentType.JSON)
                 .body(post)
                 .when().get("/session.json")
-                .then().statusCode(401);
+                .then().log().ifError()
+                .assertThat().statusCode(401);
 
     }
 }
