@@ -1,7 +1,10 @@
 import com.jayway.restassured.RestAssured;
 import com.jayway.restassured.filter.log.RequestLoggingFilter;
 import com.jayway.restassured.response.ValidatableResponse;
+import io.qameta.allure.*;
+import org.testng.TestListenerAdapter;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import com.jayway.restassured.http.ContentType;
 import com.jayway.restassured.parsing.Parser;
@@ -16,10 +19,10 @@ import static com.jayway.restassured.RestAssured.basic;
 import static org.codehaus.groovy.tools.shell.util.Logger.io;
 import static org.hamcrest.Matchers.*;
 
-import io.qameta.allure.Link;
-import io.qameta.allure.Issue;
-import io.qameta.allure.TmsLink;
 
+@Listeners({TestListenerAdapter.class})
+@Epic("API testing")
+@Feature("API testing")
 
 public class TestAPI {
     protected static void setupRestAssured() {
@@ -32,6 +35,8 @@ public class TestAPI {
     }
 
     @Test(description = "create session", priority = 1)
+    @Severity(SeverityLevel.NORMAL)
+    @Story("Session creation")
     public void sessionCreation(){
         Map<String,String> post = new HashMap<>();
         post.put("application_id", "76077");
@@ -54,6 +59,8 @@ public class TestAPI {
     }
 
     @Test(description = "user sign in", priority = 2)
+    @Severity(SeverityLevel.NORMAL)
+    @Story("User Login")
     public void userSignIn(){
         Map<String,String> post = new HashMap<>();
         post.put("user[login]", "MytestUser");
@@ -73,6 +80,8 @@ public class TestAPI {
     }
 
     @Test(description = "session info", priority = 3)
+    @Severity(SeverityLevel.NORMAL)
+    @Story("Get Session info")
     public void sessionInfo(){
         Map<String,String> post = new HashMap<>();
         post.put("token", "a0a5a2b59416275784773f16b650f9641a01292d");
@@ -87,6 +96,8 @@ public class TestAPI {
     }
 
     @Test(description = "user sign out", priority = 4)
+    @Severity(SeverityLevel.NORMAL)
+    @Story("User Sign out")
     public void userSignOut(){
         Map<String,String> post = new HashMap<>();
         post.put("token", "762dd9b95a2b57853b93a378976a0a7dfa01292d");
@@ -101,6 +112,8 @@ public class TestAPI {
     }
 
     @Test(description = "destroy session", priority = 5)
+    @Severity(SeverityLevel.NORMAL)
+    @Story("Session destroyed")
     public void destroySession(){
         Map<String,String> post = new HashMap<>();
         post.put("token", "a0a5a2b59416275784773f16b650f9641a01292d");
@@ -115,6 +128,8 @@ public class TestAPI {
     }
 
     @Test(description = "session info after destroy", priority = 6)
+    @Severity(SeverityLevel.NORMAL)
+    @Story("Get Session info after destroy")
     public void sessionInfoAfterDestroy(){
         Map<String,String> post = new HashMap<>();
         post.put("token", "a0a5a2b59416275784773f16b650f9641a01292d");
