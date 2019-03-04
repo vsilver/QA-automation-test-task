@@ -13,6 +13,17 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <systemProperties>
+        <property>
+            <name>allure.results.directory</name>
+            <value>${project.build.directory}/allure-results</value>
+        </property>
+        <property>
+            <name>allure.results.directory</name>
+            <value>D:\QA-automation-test-task\allure-results</value>
+        </property>
+    </systemProperties>
+
     <dependencies>
 
         <dependency>
@@ -47,6 +58,12 @@
             <version>2.10.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>ru.yandex.qatools.allure</groupId>
+            <artifactId>allure-maven-plugin</artifactId>
+            <version>2.6</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -75,7 +92,7 @@
                         <printSummary>true</printSummary>
                     </configuration>
                 </plugin>
-                
+
             </plugins>
         </pluginManagement>
     </build>

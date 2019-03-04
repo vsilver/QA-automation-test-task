@@ -66,7 +66,7 @@ public class TestAPI {
         post.put("user[login]", "MytestUser");
         post.put("user[password]", "MyDochka1");
         post.put("provider", "facebook");
-        post.put("token", "a0a5a2b59416275784773f16b650f9641a01292d");
+        post.put("token", "b41ce6f1187b0953b45c28464e6ce6504001292d");
 
         ValidatableResponse response = given()
                 .filter(new RequestLoggingFilter())
@@ -84,7 +84,7 @@ public class TestAPI {
     @Story("Get Session info")
     public void sessionInfo(){
         Map<String,String> post = new HashMap<>();
-        post.put("token", "a0a5a2b59416275784773f16b650f9641a01292d");
+        post.put("token", "b41ce6f1187b0953b45c28464e6ce6504001292d");
 
         given()
                 .filter(new RequestLoggingFilter())
@@ -100,7 +100,7 @@ public class TestAPI {
     @Story("User Sign out")
     public void userSignOut(){
         Map<String,String> post = new HashMap<>();
-        post.put("token", "762dd9b95a2b57853b93a378976a0a7dfa01292d");
+        post.put("token", "b41ce6f1187b0953b45c28464e6ce6504001292d");
 
         given()
                 .filter(new RequestLoggingFilter())
@@ -116,7 +116,7 @@ public class TestAPI {
     @Story("Session destroyed")
     public void destroySession(){
         Map<String,String> post = new HashMap<>();
-        post.put("token", "a0a5a2b59416275784773f16b650f9641a01292d");
+        post.put("token", "b41ce6f1187b0953b45c28464e6ce6504001292d");
 
         given()
                 .filter(new RequestLoggingFilter())
@@ -132,7 +132,7 @@ public class TestAPI {
     @Story("Get Session info after destroy")
     public void sessionInfoAfterDestroy(){
         Map<String,String> post = new HashMap<>();
-        post.put("token", "a0a5a2b59416275784773f16b650f9641a01292d");
+        post.put("token", "b41ce6f1187b0953b45c28464e6ce6504001292d");
 
         given()
                 .filter(new RequestLoggingFilter())
