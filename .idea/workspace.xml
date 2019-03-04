@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c10c1388-4fb9-4a93-a599-20def1c82596" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/TestAPI.java" afterDir="false" />
+    <list default="true" id="c10c1388-4fb9-4a93-a599-20def1c82596" name="Default Changelist" comment="change tests 2">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -15,12 +15,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="387">
-              <caret line="65" column="12" selection-start-line="65" selection-start-column="12" selection-end-line="65" selection-end-column="12" />
+            <state relative-caret-position="153">
+              <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -28,12 +28,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/TestAPI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+            <state relative-caret-position="302">
+              <caret line="139" column="27" lean-forward="true" selection-start-line="139" selection-start-column="27" selection-end-line="139" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#439#440#0" expanded="true" />
-                <element signature="e#497#498#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -54,8 +52,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/test/java/TestAPI.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -77,7 +75,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -103,10 +100,28 @@
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="QA-automation-test-task" type="b2602c69:ProjectViewProjectNode" />
+              <item name="QA-automation-test-task" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="QA-automation-test-task" type="b2602c69:ProjectViewProjectNode" />
+              <item name="QA-automation-test-task" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="generated-test-sources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="QA-automation-test-task" type="b2602c69:ProjectViewProjectNode" />
+              <item name="QA-automation-test-task" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="test-classes" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -115,6 +130,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="C:/Program Files/nodejs/node" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -128,7 +144,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="TestNG.TestAPI.sessionInfoAfterDestroy">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -144,6 +160,71 @@
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestAPI.destroySession" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="QA-automation-test-task" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestAPI" />
+      <option name="METHOD_NAME" value="destroySession" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestAPI.sessionInfo" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="QA-automation-test-task" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestAPI" />
+      <option name="METHOD_NAME" value="sessionInfo" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestAPI.sessionInfoAfterDestroy" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="QA-automation-test-task" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestAPI" />
+      <option name="METHOD_NAME" value="sessionInfoAfterDestroy" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestAPI.userSignIn" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="QA-automation-test-task" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestAPI" />
+      <option name="METHOD_NAME" value="userSignIn" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestAPI.userSignOut" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="QA-automation-test-task" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestAPI" />
+      <option name="METHOD_NAME" value="userSignOut" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -165,6 +246,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="TestNG.TestAPI.sessionInfoAfterDestroy" />
+        <item itemvalue="TestNG.TestAPI.destroySession" />
+        <item itemvalue="TestNG.TestAPI.userSignOut" />
+        <item itemvalue="TestNG.TestAPI.sessionInfo" />
+        <item itemvalue="TestNG.TestAPI.userSignIn" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -176,62 +266,211 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1551457487463</updated>
-      <workItem from="1551457490342" duration="266000" />
+      <workItem from="1551457490342" duration="9409000" />
+      <workItem from="1551593782430" duration="13741000" />
+      <workItem from="1551684379547" duration="544000" />
     </task>
+    <task id="LOCAL-00001" summary="config">
+      <created>1551502113784</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1551502113784</updated>
+    </task>
+    <task id="LOCAL-00002" summary="create session">
+      <created>1551514722419</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1551514722419</updated>
+    </task>
+    <task id="LOCAL-00003" summary="create session1">
+      <created>1551530879746</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1551530879746</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add all test structure">
+      <created>1551532029643</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1551532029643</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add sign in">
+      <created>1551534556410</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1551534556410</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add session info test">
+      <created>1551535047371</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1551535047372</updated>
+    </task>
+    <task id="LOCAL-00007" summary="add all tests">
+      <created>1551537422314</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1551537422314</updated>
+    </task>
+    <task id="LOCAL-00008" summary="change tests">
+      <created>1551595605032</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1551595605032</updated>
+    </task>
+    <task id="LOCAL-00009" summary="change tests 1">
+      <created>1551606059704</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1551606059704</updated>
+    </task>
+    <task id="LOCAL-00010" summary="change tests 1">
+      <created>1551606168172</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1551606168172</updated>
+    </task>
+    <task id="LOCAL-00011" summary="change tests 1">
+      <created>1551616200045</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1551616200045</updated>
+    </task>
+    <task id="LOCAL-00012" summary="change tests 2">
+      <created>1551616692736</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1551616692736</updated>
+    </task>
+    <task id="LOCAL-00013" summary="change tests 3">
+      <created>1551672555441</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1551672555441</updated>
+    </task>
+    <task id="LOCAL-00014" summary="change tests 4">
+      <created>1551681018318</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1551681018318</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="TestAPI_destroySession - 2019.03.03 at 14h 29m 10s.xml">
+      <configuration name="TestAPI.destroySession" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="TestAPI_sessionInfoAfterDestroy - 2019.03.03 at 14h 29m 33s.xml">
+      <configuration name="TestAPI.sessionInfoAfterDestroy" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="TestAPI_userSignIn - 2019.03.04 at 06h 16m 47s.xml">
+      <configuration name="TestAPI.userSignIn" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="TestAPI_sessionInfo - 2019.03.04 at 06h 17m 48s.xml">
+      <configuration name="TestAPI.sessionInfo" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="TestAPI_userSignOut - 2019.03.04 at 06h 18m 42s.xml">
+      <configuration name="TestAPI.userSignOut" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="TestAPI_destroySession - 2019.03.04 at 06h 19m 52s.xml">
+      <configuration name="TestAPI.destroySession" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="TestAPI_sessionInfoAfterDestroy - 2019.03.04 at 06h 20m 50s.xml">
+      <configuration name="TestAPI.sessionInfoAfterDestroy" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="TestAPI_sessionInfoAfterDestroy - 2019.03.04 at 07h 13m 50s.xml">
+      <configuration name="TestAPI.sessionInfoAfterDestroy" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="TestAPI_sessionInfoAfterDestroy - 2019.03.04 at 08h 23m 39s.xml">
+      <configuration name="TestAPI.sessionInfoAfterDestroy" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="TestAPI_sessionInfoAfterDestroy - 2019.03.04 at 09h 27m 49s.xml">
+      <configuration name="TestAPI.sessionInfoAfterDestroy" configurationId="TestNG" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="266000" />
+    <option name="totallyTimeSpent" value="23694000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Designer" />
-      <window_info id="UI Designer" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24962178" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16414523" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Designer" order="2" />
+      <window_info id="UI Designer" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.6377551" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Maven" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="11" />
+      <window_info anchor="bottom" id="Messages" order="12" />
+      <window_info anchor="bottom" id="Java Enterprise" order="13" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Maven" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="CDI" order="7" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="config" />
+    <MESSAGE value="create session" />
+    <MESSAGE value="create session1" />
+    <MESSAGE value="add all test structure" />
+    <MESSAGE value="add sign in" />
+    <MESSAGE value="add session info test" />
+    <MESSAGE value="add all tests" />
+    <MESSAGE value="change tests" />
+    <MESSAGE value="change tests 1" />
+    <MESSAGE value="change tests 2" />
+    <MESSAGE value="change tests 3" />
+    <MESSAGE value="change tests 4" />
+    <option name="LAST_COMMIT_MESSAGE" value="change tests 4" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="65" column="12" selection-start-line="65" selection-start-column="12" selection-end-line="65" selection-end-column="12" />
+        <state relative-caret-position="153">
+          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/TestAPI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+        <state relative-caret-position="302">
+          <caret line="139" column="27" lean-forward="true" selection-start-line="139" selection-start-column="27" selection-end-line="139" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#439#440#0" expanded="true" />
-            <element signature="e#497#498#0" expanded="true" />
           </folding>
         </state>
       </provider>

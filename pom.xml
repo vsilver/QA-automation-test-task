@@ -16,10 +16,6 @@
     <systemProperties>
         <property>
             <name>allure.results.directory</name>
-            <value>${project.build.directory}/allure-results</value>
-        </property>
-        <property>
-            <name>allure.results.directory</name>
             <value>D:\QA-automation-test-task\allure-results</value>
         </property>
     </systemProperties>
