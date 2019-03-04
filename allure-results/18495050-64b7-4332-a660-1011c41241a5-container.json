@@ -1,0 +1,1 @@
+{"uuid":"18495050-64b7-4332-a660-1011c41241a5","name":"QA-automation-test-task","children":["52cdea17-7604-4c00-b338-95f9418058e3"],"befores":[{"name":"setUp","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1551686773724,"stop":1551686774247}],"afters":[],"links":[],"start":1551686773677,"stop":1551686777297}
