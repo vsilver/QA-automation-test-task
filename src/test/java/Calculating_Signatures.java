@@ -15,24 +15,24 @@ import javax.crypto.spec.SecretKeySpec;
 
 public class Calculating_Signatures {
 
-    private static final String HMAC_SHA1_ALGORITHM = "HmacSHA1";
+    public static String Signature(String xData, String AppKey) {
+        try {
+            final Base64.Encoder encoder = Base64.getEncoder();
+            // get an hmac_sha1 key from the raw key bytes
+            SecretKeySpec signingKey = new SecretKeySpec(AppKey.getBytes("UTF-8"),"HmacSHA1");
 
-    private static String toHexString(byte[] bytes) {
-        Formatter formatter = new Formatter();
+            // get an hmac_sha1 Mac instance and initialize with the signing key
+            Mac mac = Mac.getInstance("HmacSHA1");
+            mac.init(signingKey);
 
-        for (byte b : bytes) {
-            formatter.format("%02x", b);
+            // compute the hmac on input data bytes
+            byte[] rawHmac = mac.doFinal(xData.getBytes("UTF-8"));
+            String result = encoder.encodeToString(rawHmac);
+            return result;
+
+        } catch (Exception e) {
+            return "";
+//            throw new SignatureException("Failed to generate HMAC : "+ e.getMessage());
         }
-
-        return formatter.toString();
-    }
-
-    public static String calculateHMAC(String data, String key)
-            throws SignatureException, NoSuchAlgorithmException, InvalidKeyException
-    {
-        SecretKeySpec signingKey = new SecretKeySpec(key.getBytes(), HMAC_SHA1_ALGORITHM);
-        Mac mac = Mac.getInstance(HMAC_SHA1_ALGORITHM);
-        mac.init(signingKey);
-        return toHexString(mac.doFinal(data.getBytes()));
     }
 }

@@ -24,7 +24,7 @@ import static org.hamcrest.Matchers.*;
 @Epic("API testing")
 @Feature("API testing")
 
-public class TestAPI extends Calculating_Signatures {
+public class TestAPI {
     protected static void setupRestAssured() {
         RestAssured.baseURI = "https://api.quickblox.com";
     }
@@ -36,7 +36,7 @@ public class TestAPI extends Calculating_Signatures {
 
     String string_request = "application_id=76077&auth_key=4M6nWT7TjY45vEc&nonce=12699&timestamp=1551679855&user[login]=MytestUser&user[password]=MyDochka1";
     String authorization_secret = "BpfxuSMG8EVRENU";
-    String signature = Calculating_Signatures.calculateHMAC(string_request, authorization_secret);
+    String signature = Calculating_Signatures.Signature(string_request, authorization_secret);
 
     @Test(description = "create session", priority = 1)
     @Severity(SeverityLevel.NORMAL)
@@ -48,8 +48,9 @@ public class TestAPI extends Calculating_Signatures {
         post.put("nonce", "12499");
         post.put("timestamp", "1551622435");
         post.put("user[login]", "MytestUser");
+
         post.put("user[password]", "MyDochka1");
-        post.put("signature", "c826677047ec5386537d749c10d75450f9627ebf");
+        post.put("signature", signature);
 
         ValidatableResponse response = given()
                 .filter(new RequestLoggingFilter())
