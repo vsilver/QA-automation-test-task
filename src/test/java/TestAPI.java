@@ -10,6 +10,9 @@ import com.jayway.restassured.http.ContentType;
 import com.jayway.restassured.parsing.Parser;
 import com.jayway.restassured.response.Response;
 
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.SignatureException;
 import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
@@ -34,9 +37,8 @@ public class TestAPI {
         setupRestAssured();
     }
 
-    String string_request = "application_id=76077&auth_key=4M6nWT7TjY45vEc&nonce=12699&timestamp=1551679855&user[login]=MytestUser&user[password]=MyDochka1";
+    String string_request = "application_id=76077&auth_key=4M6nWT7TjY45vEc&nonce=12699&timestamp=1551795655&user[login]=MytestUser&user[password]=MyDochka1";
     String authorization_secret = "BpfxuSMG8EVRENU";
-    String signature = Calculating_Signatures.Signature(string_request, authorization_secret);
 
     @Test(description = "create session", priority = 1)
     @Severity(SeverityLevel.NORMAL)
@@ -45,12 +47,16 @@ public class TestAPI {
         Map<String,String> post = new HashMap<>();
         post.put("application_id", "76077");
         post.put("auth_key", "4M6nWT7TjY45vEc");
-        post.put("nonce", "12499");
-        post.put("timestamp", "1551622435");
+        post.put("nonce", "12699");
+        post.put("timestamp", "1551795655");
         post.put("user[login]", "MytestUser");
-
         post.put("user[password]", "MyDochka1");
-        post.put("signature", signature);
+        try {
+            String sign = Calculating_Signatures.calculateHMAC_SHA(string_request, authorization_secret);
+            post.put("signature", sign);
+        } catch (SignatureException e) {
+            e.printStackTrace();
+        }
 
         ValidatableResponse response = given()
                 .filter(new RequestLoggingFilter())

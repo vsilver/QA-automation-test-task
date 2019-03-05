@@ -15,24 +15,38 @@ import javax.crypto.spec.SecretKeySpec;
 
 public class Calculating_Signatures {
 
-    public static String Signature(String xData, String AppKey) {
+    public static String calculateHMAC_SHA(String data, String key) throws SignatureException {
+        String result = null;
+        String HMAC_SHA1_ALGORITHM = "HmacSHA1";
+
         try {
-            final Base64.Encoder encoder = Base64.getEncoder();
+
             // get an hmac_sha1 key from the raw key bytes
-            SecretKeySpec signingKey = new SecretKeySpec(AppKey.getBytes("UTF-8"),"HmacSHA1");
+            SecretKeySpec signingKey = new SecretKeySpec(key.getBytes(), HMAC_SHA1_ALGORITHM);
 
             // get an hmac_sha1 Mac instance and initialize with the signing key
-            Mac mac = Mac.getInstance("HmacSHA1");
+            Mac mac = Mac.getInstance(HMAC_SHA1_ALGORITHM);
             mac.init(signingKey);
 
-            // compute the hmac on input data bytes
-            byte[] rawHmac = mac.doFinal(xData.getBytes("UTF-8"));
-            String result = encoder.encodeToString(rawHmac);
-            return result;
+            byte[] digest = mac.doFinal(data.getBytes());
+
+            StringBuilder sb = new StringBuilder(digest.length * 2);
+            String s;
+            for (byte b : digest) {
+                s = Integer.toHexString(0xFF & b);
+                if (s.length() == 1) {
+                    sb.append('0');
+                }
+
+                sb.append(s);
+            }
+
+            result = sb.toString();
 
         } catch (Exception e) {
-            return "";
-//            throw new SignatureException("Failed to generate HMAC : "+ e.getMessage());
+            throw new SignatureException("Failed to generate HMAC : " + e.getMessage());
         }
+
+        return result;
     }
 }
