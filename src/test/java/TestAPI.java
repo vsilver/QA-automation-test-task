@@ -1,6 +1,10 @@
+import com.google.gson.Gson;
 import com.jayway.restassured.RestAssured;
 import com.jayway.restassured.filter.log.RequestLoggingFilter;
+import com.jayway.restassured.path.json.JsonPath;
+import com.jayway.restassured.response.ResponseBody;
 import com.jayway.restassured.response.ValidatableResponse;
+import com.jcraft.jsch.Session;
 import io.qameta.allure.*;
 import org.testng.TestListenerAdapter;
 import org.testng.annotations.BeforeTest;
@@ -17,8 +21,7 @@ import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.jayway.restassured.RestAssured.given;
-import static com.jayway.restassured.RestAssured.basic;
+import static com.jayway.restassured.RestAssured.*;
 import static org.codehaus.groovy.tools.shell.util.Logger.io;
 import static org.hamcrest.Matchers.*;
 
@@ -37,8 +40,8 @@ public class TestAPI {
         setupRestAssured();
     }
 
-    String string_request = "application_id=76077&auth_key=4M6nWT7TjY45vEc&nonce=12899&timestamp=1551854455";
-    String authorization_secret = "BpfxuSMG8EVRENU";    
+    String string_request = "application_id=76077&auth_key=4M6nWT7TjY45vEc&nonce=29999&timestamp=1551866935";
+    String authorization_secret = "BpfxuSMG8EVRENU";
 
     @Test(description = "create session", priority = 1)
     @Severity(SeverityLevel.NORMAL)
@@ -47,9 +50,8 @@ public class TestAPI {
         Map<String,String> post = new HashMap<>();
         post.put("application_id", "76077");
         post.put("auth_key", "4M6nWT7TjY45vEc");
-        post.put("nonce", "12899");
-        post.put("timestamp", "1551854455");
-                                               //"token": "7f30592aa0875260fcb0997ef96167f6a901292d"
+        post.put("nonce", "29999");
+        post.put("timestamp", "1551866935");
 
         try {
             String sign = Calculating_Signatures.calculateHMAC_SHA(string_request, authorization_secret);
@@ -58,7 +60,7 @@ public class TestAPI {
             e.printStackTrace();
         }
 
-        ValidatableResponse response = given()
+        ValidatableResponse response1 = given()
                 .filter(new RequestLoggingFilter())
                 .contentType(ContentType.JSON)
                 .body(post)
@@ -66,7 +68,14 @@ public class TestAPI {
                 .then().log().ifError()
                 .assertThat().statusCode(201);
 
-        response.log().all().extract().response();
+                response1.log().all().extract().response();
+
+
+                String str = response1.log().body().toString();
+                JsonPath jsonpath = new JsonPath(str);
+                String token = jsonpath.getString("token");
+                System.out.println(token);
+
     }
 
     @Test(description = "user sign in", priority = 2)
@@ -79,7 +88,7 @@ public class TestAPI {
         post.put("provider", "facebook");
         post.put("token", "7f30592aa0875260fcb0997ef96167f6a901292d");
 
-        ValidatableResponse response = given()
+        ValidatableResponse response1 = given()
                 .filter(new RequestLoggingFilter())
                 .contentType(ContentType.JSON)
                 .body(post)
@@ -87,7 +96,7 @@ public class TestAPI {
                 .then().log().ifError()
                 .body(containsString("user"));
 
-        response.log().all().extract().response();
+        response1.log().all().extract().response();
     }
 
     @Test(description = "session info", priority = 3)
@@ -155,4 +164,6 @@ public class TestAPI {
 
     }
 }
+
+
 
