@@ -37,8 +37,8 @@ public class TestAPI {
         setupRestAssured();
     }
 
-    String string_request = "application_id=76077&auth_key=4M6nWT7TjY45vEc&nonce=12699&timestamp=1551795655&user[login]=MytestUser&user[password]=MyDochka1";
-    String authorization_secret = "BpfxuSMG8EVRENU";
+    String string_request = "application_id=76077&auth_key=4M6nWT7TjY45vEc&nonce=12899&timestamp=1551854455";
+    String authorization_secret = "BpfxuSMG8EVRENU";    
 
     @Test(description = "create session", priority = 1)
     @Severity(SeverityLevel.NORMAL)
@@ -47,10 +47,10 @@ public class TestAPI {
         Map<String,String> post = new HashMap<>();
         post.put("application_id", "76077");
         post.put("auth_key", "4M6nWT7TjY45vEc");
-        post.put("nonce", "12699");
-        post.put("timestamp", "1551795655");
-        post.put("user[login]", "MytestUser");
-        post.put("user[password]", "MyDochka1");
+        post.put("nonce", "12899");
+        post.put("timestamp", "1551854455");
+                                               //"token": "7f30592aa0875260fcb0997ef96167f6a901292d"
+
         try {
             String sign = Calculating_Signatures.calculateHMAC_SHA(string_request, authorization_secret);
             post.put("signature", sign);
@@ -77,7 +77,7 @@ public class TestAPI {
         post.put("user[login]", "MytestUser");
         post.put("user[password]", "MyDochka1");
         post.put("provider", "facebook");
-        post.put("token", "b41ce6f1187b0953b45c28464e6ce6504001292d");
+        post.put("token", "7f30592aa0875260fcb0997ef96167f6a901292d");
 
         ValidatableResponse response = given()
                 .filter(new RequestLoggingFilter())
