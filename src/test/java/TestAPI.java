@@ -17,6 +17,7 @@ import com.jayway.restassured.response.Response;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SignatureException;
+import java.util.Date;
 import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
@@ -40,7 +41,7 @@ public class TestAPI {
         setupRestAssured();
     }
 
-    String string_request = "application_id=76077&auth_key=4M6nWT7TjY45vEc&nonce=29999&timestamp=1551866935";
+    String string_request = "application_id=76077&auth_key=4M6nWT7TjY45vEc&nonce=29999";
     String authorization_secret = "BpfxuSMG8EVRENU";
 
     @Test(description = "create session", priority = 1)
@@ -48,10 +49,15 @@ public class TestAPI {
     @Story("Session creation")
     public void sessionCreation(){
         Map<String,String> post = new HashMap<>();
+
+        long timestamp = new Date().getTime() / 1000;
+
         post.put("application_id", "76077");
         post.put("auth_key", "4M6nWT7TjY45vEc");
         post.put("nonce", "29999");
-        post.put("timestamp", "1551866935");
+        post.put("timestamp", timestamp + "");
+
+        string_request += "&timestamp=" + timestamp;
 
         try {
             String sign = Calculating_Signatures.calculateHMAC_SHA(string_request, authorization_secret);
@@ -60,21 +66,16 @@ public class TestAPI {
             e.printStackTrace();
         }
 
-        ValidatableResponse response1 = given()
+        Response response1 = given()
                 .filter(new RequestLoggingFilter())
                 .contentType(ContentType.JSON)
                 .body(post)
                 .when().post("/session.json")
                 .then().log().ifError()
-                .assertThat().statusCode(201);
+                .assertThat().statusCode(201)
+                .extract().response();
 
-                response1.log().all().extract().response();
-
-
-                String str = response1.log().body().toString();
-                JsonPath jsonpath = new JsonPath(str);
-                String token = jsonpath.getString("token");
-                System.out.println(token);
+        System.out.println(response1.path("session.token").toString());
 
     }
 
