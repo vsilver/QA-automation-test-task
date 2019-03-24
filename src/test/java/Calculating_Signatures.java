@@ -1,16 +1,9 @@
 
 import java.security.SignatureException;
-import java.util.Base64;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-import java.security.SignatureException;
-import java.util.Formatter;
 
-import javax.crypto.Mac;
-import javax.crypto.spec.SecretKeySpec;
 
 
 public class Calculating_Signatures {
