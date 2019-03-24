@@ -35,8 +35,8 @@ public class TestAPI {
         sessionCreation();
     }
 
-    String string_request = "application_id=76077&auth_key=4M6nWT7TjY45vEc&nonce=29999";
-    String authorization_secret = "BpfxuSMG8EVRENU";
+    //String string_request = "application_id=76077&auth_key=4M6nWT7TjY45vEc&nonce=29999";
+    //String authorization_secret = "BpfxuSMG8EVRENU";
 
     @Test(description = "create session", priority = 1)
     @Severity(SeverityLevel.NORMAL)

@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Suite1" verbose="1" >
+    <test name="Nopackage" >
+        <parameter name="browser" value="chrome" />
+        <parameter name="app-url" value="https://api.quickblox.com"/>
+        <parameter name="string_request" value="application_id=76077&auth_key=4M6nWT7TjY45vEc&nonce=29999" />
+        <parameter name="authorization_secret" value="BpfxuSMG8EVRENU" />
+
+        <classes>
+            <class name="TestAPI" />
+        </classes>
+    </test>
+</suite>
